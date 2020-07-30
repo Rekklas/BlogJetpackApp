@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.rekklesdroid.blogjetpackapp.R
 
-class LoginFragment : Fragment() {
+class LoginFragment : BaseAuthFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
