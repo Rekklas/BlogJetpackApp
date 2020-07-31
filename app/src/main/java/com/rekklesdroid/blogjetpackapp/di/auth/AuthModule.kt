@@ -1,8 +1,7 @@
-package com.codingwithmitch.openapi.di.auth
+package com.rekklesdroid.blogjetpackapp.di.auth
 
 
 import com.rekklesdroid.blogjetpackapp.api.auth.OpenApiAuthService
-import com.rekklesdroid.blogjetpackapp.di.auth.AuthScope
 import com.rekklesdroid.blogjetpackapp.persistence.AccountPropertiesDao
 import com.rekklesdroid.blogjetpackapp.persistence.AuthTokenDao
 import com.rekklesdroid.blogjetpackapp.repository.auth.AuthRepository
@@ -14,12 +13,10 @@ import retrofit2.Retrofit
 @Module
 class AuthModule{
 
-    // TEMPORARY
     @AuthScope
     @Provides
-    fun provideFakeApiService(): OpenApiAuthService {
-        return Retrofit.Builder()
-            .baseUrl("https://open-api.xyz")
+    fun provideApiService(retrofitBuilder: Retrofit.Builder): OpenApiAuthService {
+        return retrofitBuilder
             .build()
             .create(OpenApiAuthService::class.java)
     }
